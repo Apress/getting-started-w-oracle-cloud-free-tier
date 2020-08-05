@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block header %}
+    <h1>Always Cloud Conference</h1>
+    <p>
+        Welcome to the Always Cloud Conference!
+    </p>
+{% endblock %}
+{% block content %}
+    <div>
+        <h1>{{ title }}</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Start</th>
+                    <th scope="col">End</th>
+                    <th scope="col">Session Title</th>
+                    <th scope="col">Speaker</th>
+                    <th scope="col">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for session in sessions %}
+                    <tr>
+                        <td>{{ session[2].strftime("%b %d, %Y %H:%M") }}</td>
+                        <td>{{ session[3].strftime("%b %d, %Y %H:%M") }}</td>
+                        <td>{{ session[0]|e }}</td>
+                        <td>{{ session[1]|e }}</td>
+                        <td>{{ session[4]|e }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

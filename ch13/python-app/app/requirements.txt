@@ -1,0 +1,3 @@
+Flask
+cx_Oracle
+oci
